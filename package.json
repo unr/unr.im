@@ -3,22 +3,17 @@
 	"version": "1.0.0",
 	"description": "Personal site.",
 	"author": "unr",
-	"private": true,
 	"scripts": {
 		"dev": "nuxt",
 		"build": "nuxt build",
-		"start": "nuxt start",
-		"generate": "nuxt generate",
-		"now-build": "npm run build"
+		"start": "nuxt start"
 	},
 	"dependencies": {
 		"@nuxtjs/axios": "^5.3.6",
-		"cross-env": "^5.2.0",
-		"nuxt": "^2.0.0"
+		"nuxt": "latest"
 	},
 	"devDependencies": {
 		"node-sass": "^4.10.0",
-		"nodemon": "^1.11.0",
 		"sass-loader": "^7.1.0"
 	}
 }

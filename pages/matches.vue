@@ -1,21 +1,26 @@
 <template>
 	<div class='container'>
-		<h1>testing match list</h1>
-		<p>just some matches from https://www.rivalry.gg/app/matches, enjoy</p>
+		<h1>testing live match list</h1>
+		<p>just some live matches from https://www.rivalry.gg/app/matches/formatted, enjoy</p>
 
 		<div class='matches'>
-			<div v-for='match in matches' :key='match.id' class='match'>
-				<small>
-					<strong>
-						{{ match.game }}
-						<template v-if='match.default_market.data'>&nbsp;{{ match.default_market.data.name }}</template>
-					</strong>
-				</small>
-				<br>Competitors:
-				<span
-					v-for='competitor in match.competitors.data'
-					:key='competitor.name'
-				>{{ competitor.name }}</span>
+			<div v-for='(tournament, name) in tournaments' :key='name'>
+				<strong>{{ name }}</strong>
+				<div v-for='match in tournament' :key='match.id' class='match'>
+					<small>
+						<strong>
+							{{ match.data.game }}
+							<template
+								v-if='match.data.default_market.data'
+							>&nbsp;{{ match.data.default_market.data.name }}</template>
+						</strong>
+					</small>
+					<br>Competitors:
+					<span
+						v-for='competitor in match.data.competitors.data'
+						:key='competitor.name'
+					>{{ competitor.name }}</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -27,8 +32,8 @@ export default {
 
 	asyncData({ app }) {
 		return app.$axios
-			.$get('https://www.rivalry.gg/app/matches')
-			.then(response => ({ matches: response.data }))
+			.$get('https://www.rivalry.gg/app/matches/formatted')
+			.then(response => ({ tournaments: response.data.live }))
 			.catch(err => {
 				console.log(err);
 				return { matches: [] };

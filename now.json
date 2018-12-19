@@ -1,12 +1,6 @@
 {
 	"name": "unr.im",
-	"alias": ["unr.im", "www.unr.im"],
+	"alias": ["unr.im"],
 	"public": true,
-	"version": 2,
-	"builds": [
-		{
-			"src": "package.json",
-			"use": "@now/static-build"
-		}
-	]
+	"version": 2
 }

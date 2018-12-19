@@ -1,13 +1,14 @@
 <template>
-  <div class='container'>
-    <div class='icon'/>
-    <h1>unr.im</h1>
-    <p>
-      Paul is working on making this into.... something.
-      <small>Really.... I'm here tinkering with my editor at a conf.</small>
-    </p>
-    <excerpt v-for='excerpt in excerpts' :key='excerpt.id' :content='excerpt'/>
-  </div>
+	<div class='container'>
+		<div class='icon'/>
+		<h1>unr.im</h1>
+		<nuxt-link to='/matches'>...</nuxt-link>
+		<p>
+			Paul is working on making this into.... something.
+			<small>Really.... I'm here tinkering with my editor at a conf.</small>
+		</p>
+		<excerpt v-for='excerpt in excerpts' :key='excerpt.id' :content='excerpt'/>
+	</div>
 </template>
 
 <script>
